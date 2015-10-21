@@ -2,6 +2,7 @@ package com.antonioejemplos.webview2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -22,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
         config.setJavaScriptEnabled(true);
 
         // Url que carga la app (webview)
-        wb.loadUrl("http://google.com");
+        wb.loadUrl("http://google.es/");
+        //Para que se comporte como Chrome
+        wb.setWebChromeClient(new WebChromeClient());
+        //wb.loadUrl("https://m.facebook.com/");
+
         // Forzamos el webview para que abra los enlaces internos dentro de la la APP
         wb.setWebViewClient(new WebViewClient());
         // Forzamos el webview para que abra los enlaces externos en el navegador
